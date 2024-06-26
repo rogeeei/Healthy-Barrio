@@ -14,6 +14,7 @@ class CitizenDetailsController extends Controller
     {
         return CitizenDetails::all();
     }
+
     /**
      * Store a newly created resource in storage.
      */

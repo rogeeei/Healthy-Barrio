@@ -33,11 +33,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        Schema::table('citizen_details', function (Blueprint $table) {
-            $table->unsignedBigInteger('citizen_history_id');
-
-            $table->foreign('citizen_history_id')->references('id')->on('citizen_history');
-        });
     }
 
     /**

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CitizenDetailsController;
+use App\Http\Controllers\CitizenHistoryController;
 use App\Models\CitizenDetails;
 
 /*
@@ -38,4 +39,9 @@ Route::controller(CitizenDetailsController::class)->group(function () {
     Route::get('/citizen/{id}',                'show');
     Route::post('/citizen',                    'store');
     Route::delete('/citizen/{id}',             'destroy');
+});
+
+Route::controller(CitizenHistoryController::class)->group(function () {
+    Route::get('/citizen-history',                     'index');
+    Route::get('/citizen-history/{id}',                'show');
 });

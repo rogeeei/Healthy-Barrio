@@ -17,10 +17,16 @@ return new class extends Migration
             $table->unsignedBigInteger('diagnostic_id');
             $table->date('event_date');
             $table->timestamps();
+        });
+        Schema::table('citizen_history', function (Blueprint $table) {
+            $table->unsignedBigInteger('diagnostic_id');
 
-            // Define foreign key constraints
-            $table->foreign('citizen_id')->references('id')->on('citizen_details')->onDelete('cascade');
-            $table->foreign('diagnostic_id')->references('id')->on('diagnostics')->onDelete('cascade');
+            $table->foreign('diagnostic_id')->references('id')->on('diagnostic');
+        });
+        Schema::table('citizen_history', function (Blueprint $table) {
+            $table->unsignedBigInteger('citizen_id');
+
+            $table->foreign('citizen_id')->references('id')->on('citizen_details');
         });
     }
 
